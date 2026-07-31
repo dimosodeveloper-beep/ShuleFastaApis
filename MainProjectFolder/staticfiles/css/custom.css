@@ -1,0 +1,130 @@
+
+/* Jaribio la kwanza */
+
+
+/* 1. Kulazimisha Rangi Nyeusi na Nyeupe pekee */
+:root {
+    --primary-color: #000000;
+    --sidebar-bg: #000000;
+    --navbar-bg: #ffffff;
+    --text-color-dark: #000000;
+    --text-color-light: #ffffff;
+}
+
+/* Sidebar iwe nyeusi kabisa */
+.main-sidebar {
+    background-color: var(--sidebar-bg) !important;
+}
+
+/* Navbar iwe nyeupe na maandishi meusi */
+.main-header.navbar {
+    background-color: var(--navbar-bg) !important;
+    border-bottom: 1px solid #ddd !important;
+}
+.main-header.navbar a {
+    color: var(--text-color-dark) !important;
+}
+
+/* Background ya dashboard iwe nyeupe */
+.content-wrapper {
+    background-color: #ffffff !important;
+}
+
+/* Sidebar links nyeupe juu ya background nyeusi */
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link {
+    color: #ffffff !important;
+}
+
+/* Highlight ya menu iwe kijivu chepesi au nyeupe */
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+/* Kurekebisha rangi za meza (tables) */
+.table {
+    color: #000000 !important;
+}
+/* 1. Background ya Kisasa (Modern Gradient) */
+body.login-page {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* 2. Glassmorphism Login Box */
+.login-box {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease;
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+}
+
+/* 3. Styling ya Logo kwa Weledi */
+.login-logo img {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px !important;
+    transition: rotate 0.5s ease;
+}
+
+.login-logo img:hover {
+    rotate: 360deg;
+}
+
+/* 4. Typography na Meassage */
+.login-box-msg {
+    color: #4a5568 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 5. Input Fields za Kisasa */
+.input-group .form-control {
+    border-radius: 10px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 12px !important;
+    background: #f8fafc !important;
+    transition: border-color 0.3s ease;
+}
+
+.input-group .form-control:focus {
+    border-color: #4a90e2 !important;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* 6. Button ya Kisasa (Professional Primary Button) */
+.btn-primary {
+    background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%) !important;
+    border: none !important;
+    padding: 12px !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #357abd 0%, #285e8e 100%) !important;
+    box-shadow: 0 5px 15px rgba(53, 122, 189, 0.4);
+}
+
+/* 7. Footer na Links */
+.login-box a {
+    color: #4a90e2 !important;
+    text-decoration: none;
+}

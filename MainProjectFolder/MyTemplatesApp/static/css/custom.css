@@ -1,0 +1,123 @@
+
+/* Jaribio la kwanza */
+
+
+/* 1. Kulazimisha Rangi Nyeusi na Nyeupe pekee */
+:root {
+    --primary-color: #000000;
+    --sidebar-bg: #000000;
+    --navbar-bg: #ffffff;
+    --text-color-dark: #000000;
+    --text-color-light: #ffffff;
+}
+
+/* Sidebar iwe nyeusi kabisa */
+.main-sidebar {
+    background-color: var(--sidebar-bg) !important;
+}
+
+/* Navbar iwe nyeupe na maandishi meusi */
+.main-header.navbar {
+    background-color: var(--navbar-bg) !important;
+    border-bottom: 1px solid #ddd !important;
+}
+.main-header.navbar a {
+    color: var(--text-color-dark) !important;
+}
+
+/* Background ya dashboard iwe nyeupe */
+.content-wrapper {
+    background-color: #ffffff !important;
+}
+
+/* Sidebar links nyeupe juu ya background nyeusi */
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link {
+    color: #ffffff !important;
+}
+
+/* Highlight ya menu iwe kijivu chepesi au nyeupe */
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+}
+
+/* Kurekebisha rangi za meza (tables) */
+.table {
+    color: #000000 !important;
+}
+
+/* Kurekebisha logo kwenye login page isiwe kubwa mno */
+.login-page .login-logo img {
+    max-width: 150px !important; /* Rekebisha saizi hii upendavyo */
+    height: auto !important;
+    width: 100% !important;
+}
+
+/* 1. Background ya page nzima ya login */
+.login-page {
+    background: linear-gradient(135deg, #1a1a1a 0%, #434343 100%) !important;
+}
+
+/* 2. Sanduku la kuingizia taarifa (Login Box) */
+.login-box {
+    background: #ffffff !important;
+    padding: 20px;
+
+}
+
+/* 3. Kurekebisha rangi ya text na header kwenye login */
+.login-box-msg {
+    color: #333 !important;
+    font-weight: bold;
+}
+
+/* 4. Input fields (username/password) */
+.input-group .form-control {
+    border-radius: 5px !important;
+    border: 1px solid #ccc !important;
+}
+
+/* 5. Button ya login */
+.btn-primary {
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #333333 !important;
+}
+
+/* 6. Kurekebisha font ya title */
+/* Hii inalenga logo ndani ya login page kwa usahihi zaidi */
+.login-page .login-logo a img {
+
+    width: 50px;
+    height: 50px;
+
+}
+.login-logo a img {
+
+    width: 50px;
+    height: 50px;
+
+}
+
+.login-logo img {
+
+    width: 50px;
+    height: 50px;
+
+}
+
+img {
+
+    width: 50px;
+    height: 50px;
+
+}
+
+/* Hii inahakikisha kuwa haina margin kubwa inayofanya ionekane kubwa */
+.login-page .login-logo {
+    margin-bottom: 20px !important;
+}
