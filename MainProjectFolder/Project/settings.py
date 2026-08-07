@@ -33,7 +33,7 @@ SECRET_KEY = "x*za6xf&_80ofdpae!yzq61g9ffikkx9$*iygbl$j7rr4wlf8t"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['EduPulse.pythonanywhere.com','169.58.105.106','shulefasta.com']
+ALLOWED_HOSTS = ['EduPulse.pythonanywhere.com']
 
 
 # Application definition
@@ -105,6 +105,8 @@ AUTH_USER_MODEL="App.CustomerUser"
 #     }
 # }
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -115,7 +117,6 @@ DATABASES = {
         'PORT':'',
     }
 }
-
 
 
 # DATABASES = {

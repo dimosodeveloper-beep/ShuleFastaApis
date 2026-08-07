@@ -59,6 +59,7 @@ class SchoolAdmin(ImportExportModelAdmin):
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from import_export.admin import ImportExportModelAdmin
+from .models import CustomerUser  # Hakikisha unajua import path yako
 
 # ==============================
 # CUSTOMER USER
@@ -106,22 +107,37 @@ class CustomerUserAdmin(UserAdmin):
         ),
     )
 
-    # Hatua ya A: Kuchuja orodha (List) ya watumiaji wanaonekana
+    # 1. Kichujio cha Dropdown kwa Role (Hapa ndipo tumefanya marekebisho)
+    def formfield_for_choice_field(self, db_field, request, **kwargs):
+        if db_field.name == "role":
+            # Kama mtumiaji si 'owner', toa option ya 'owner' kwenye listi
+            if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
+                # Tunachuja choices ili kuondoa ('owner', 'Owner')
+                kwargs['choices'] = [
+                    choice for choice in db_field.choices
+                    if choice[0] != 'owner'
+                ]
+
+        # Unaweza kufanya vivyo hivyo kwa role_SW kama inahitajika
+        if db_field.name == "role_SW":
+            if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
+                kwargs['choices'] = [
+                    choice for choice in db_field.choices
+                    if choice[0] != 'owner'
+                ]
+
+        return super().formfield_for_choice_field(db_field, request, **kwargs)
+
+    # 2. Kuchuja orodha (List) ya watumiaji wanaonekana
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-
-        # Kama mtumiaji ana role ya 'owner', mruhusu aone watumiaji wote
         if hasattr(request.user, 'role') and request.user.role == 'owner':
             return qs
-
-        # Kama siyo owner, mpe watumiaji wa shule yake tu
         if request.user.school:
             return qs.filter(school=request.user.school)
-
-        # Usalama: Kama hana shule na sio owner, asione mtumiaji yeyote
         return qs.none()
 
-    # Hatua ya B: Kuchuja Dropdown ya Shule wakati wa kuongeza/kuhariri mtumiaji
+    # 3. Kuchuja Dropdown ya Shule
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "school":
             if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
@@ -129,15 +145,13 @@ class CustomerUserAdmin(UserAdmin):
                     kwargs["queryset"] = db_field.related_model.objects.filter(id=request.user.school.id)
                 else:
                     kwargs["queryset"] = db_field.related_model.objects.none()
-
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
-    # Hatua ya C: Kumlazimisha mtumiaji kuwa chini ya shule ya yule aliyemsave
+    # 4. Kumlazimisha mtumiaji kuwa chini ya shule ya yule aliyemsave
     def save_model(self, request, obj, form, change):
         if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
             if request.user.school:
                 obj.school = request.user.school
-
         super().save_model(request, obj, form, change)
 
 
