@@ -29,6 +29,6 @@ if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 
-admin.site.site_header= "SHULE FASTA SYSTEM"
-admin.site.site_title = "ADMIN AREA"
+admin.site.site_header= "SHULE FASTA DASHBOARD"
+admin.site.site_title = "DASHBOARD AREA"
 admin.site.index_title = "WELCOME TO ADMIN DASHBOARD"
