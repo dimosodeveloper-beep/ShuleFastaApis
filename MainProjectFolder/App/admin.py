@@ -126,39 +126,39 @@ class CustomerUserAdmin(UserAdmin):
         ),
     )
 
-    # Hatua ya A: Kuchuja orodha (List) ya watumiaji wanaonekana
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
+    # # Hatua ya A: Kuchuja orodha (List) ya watumiaji wanaonekana
+    # def get_queryset(self, request):
+    #     qs = super().get_queryset(request)
 
-        # Kama mtumiaji ana role ya 'owner', mruhusu aone watumiaji wote
-        if hasattr(request.user, 'role') and request.user.role == 'owner':
-            return qs
+    #     # Kama mtumiaji ana role ya 'owner', mruhusu aone watumiaji wote
+    #     if hasattr(request.user, 'role') and request.user.role == 'owner':
+    #         return qs
 
-        # Kama siyo owner, mpe watumiaji wa shule yake tu
-        if request.user.school:
-            return qs.filter(school=request.user.school)
+    #     # Kama siyo owner, mpe watumiaji wa shule yake tu
+    #     if request.user.school:
+    #         return qs.filter(school=request.user.school)
 
-        # Usalama: Kama hana shule na sio owner, asione mtumiaji yeyote
-        return qs.none()
+    #     # Usalama: Kama hana shule na sio owner, asione mtumiaji yeyote
+    #     return qs.none()
 
-    # Hatua ya B: Kuchuja Dropdown ya Shule wakati wa kuongeza/kuhariri mtumiaji
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == "school":
-            if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
-                if request.user.school:
-                    kwargs["queryset"] = db_field.related_model.objects.filter(id=request.user.school.id)
-                else:
-                    kwargs["queryset"] = db_field.related_model.objects.none()
+    # # Hatua ya B: Kuchuja Dropdown ya Shule wakati wa kuongeza/kuhariri mtumiaji
+    # def formfield_for_foreignkey(self, db_field, request, **kwargs):
+    #     if db_field.name == "school":
+    #         if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
+    #             if request.user.school:
+    #                 kwargs["queryset"] = db_field.related_model.objects.filter(id=request.user.school.id)
+    #             else:
+    #                 kwargs["queryset"] = db_field.related_model.objects.none()
 
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+    #     return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
-    # Hatua ya C: Kumlazimisha mtumiaji kuwa chini ya shule ya yule aliyemsave
-    def save_model(self, request, obj, form, change):
-        if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
-            if request.user.school:
-                obj.school = request.user.school
+    # # Hatua ya C: Kumlazimisha mtumiaji kuwa chini ya shule ya yule aliyemsave
+    # def save_model(self, request, obj, form, change):
+    #     if not (hasattr(request.user, 'role') and request.user.role == 'owner'):
+    #         if request.user.school:
+    #             obj.school = request.user.school
 
-        super().save_model(request, obj, form, change)
+    #     super().save_model(request, obj, form, change)
 
 
 # ==============================
