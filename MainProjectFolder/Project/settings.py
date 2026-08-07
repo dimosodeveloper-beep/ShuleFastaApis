@@ -213,8 +213,8 @@ JAZZMIN_SETTINGS = {
 
     # Title ya dashboard yako
     "site_title": "School Admin",
-    "site_header": "DASHBOARD",
-    "site_brand": "DASHBOARD",
+    "site_header": "Shule Fasta",
+    "site_brand": "Shule Fasta",
 
     "custom_css": "css/custom.css", # Hii faili utatengeneza
 
