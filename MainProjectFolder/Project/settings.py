@@ -33,7 +33,7 @@ SECRET_KEY = "x*za6xf&_80ofdpae!yzq61g9ffikkx9$*iygbl$j7rr4wlf8t"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['EduPulse.pythonanywhere.com']
+ALLOWED_HOSTS = ['EduPulse.pythonanywhere.com','169.58.105.106','shulefasta.com']
 
 
 # Application definition
@@ -98,12 +98,24 @@ AUTH_USER_MODEL="App.CustomerUser"
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'shulefastadb',
+        'USER':'shulefasta',
+        'PASSWORD':'Dimoso@9898',
+        'HOST':'localhost',
+        'PORT':'',
     }
 }
+
 
 
 # DATABASES = {
