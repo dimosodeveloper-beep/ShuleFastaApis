@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import *
 from .serializers import *
 
-
+#Latest
 from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -138,7 +138,7 @@ load_dotenv()
 
 class LatestVersionView(APIView):
     def get(self, request):
-        latest_version = "1"
+        latest_version = "7"
         return JsonResponse({"latest_version": latest_version})
 
 from rest_framework.views import APIView
